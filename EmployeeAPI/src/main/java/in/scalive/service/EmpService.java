@@ -51,13 +51,15 @@ public class EmpService {
     
     
     //delete
-    public String deleteEmp(Emp emp, Integer empId) {
-    	Emp e=empRepo.findById(empId).orElse(null);
-    	if(e==null) {
-        	throw new NoSuchEmpExistsException("Emp with id"+empId+" does not exist");
-    	}
-    	empRepo.delete(e);
-    	return "Emp with ID " + empId + " deleted successfully!";
-    	
-    }
+   public String deleteEmp(Integer empId) {
+	    Emp emp = empRepo.findById(empId).orElse(null);
+
+	    if (emp == null) {
+	        throw new NoSuchEmpExistException("Emp with ID " + empId + " does not exist");
+	    }
+
+	    empRepo.delete(emp);
+
+	    return "Emp with ID " + empId + " deleted successfully!";
+	}
 }
