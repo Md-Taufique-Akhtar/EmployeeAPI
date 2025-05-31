@@ -47,10 +47,10 @@ public class EmpController {
     }
     
     //delete
-    @DeleteMapping("/delete/{empId}")
-    public String deleteEmp(@RequestBody Emp deleteEmp, @PathVariable("empId")  Integer empId) {
-    	return serv.deleteEmp(deleteEmp, empId);
-    }
+   @DeleteMapping("/delete/{empId}")
+	public String deleteEmp(@PathVariable("empId") Integer empId) {
+	    return serv.deleteEmp(empId);
+	}
     
     
 }
