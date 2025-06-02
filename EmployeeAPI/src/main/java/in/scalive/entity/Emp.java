@@ -16,6 +16,10 @@ public class Emp {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer empId;
-    private String ename;
-    private Double sal;
+  @NotBlank(message="Emmployee name is required!")
+	private	String ename;
+	
+	@NotNull(message="Salary is required!")
+	@Min(value=10000, message="Salary must be atleast 100000")
+	private	Double sal;
 }
